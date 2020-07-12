@@ -24,38 +24,48 @@ class MyCustomFormState extends State<MyCustomForm> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          TextFormField(
-            validator: (value) {
-              if (value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-            decoration: new InputDecoration(
-              hintText: "Enter Something",
-              contentPadding: const EdgeInsets.all(6.0),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: RaisedButton(
-              onPressed: () {
-                // Validate returns true if the form is valid, or false
-                // otherwise.
-                if (_formKey.currentState.validate()) {
-                  // If the form is valid, display a Snackbar.
-                  Scaffold.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text('Processing Data'),
-                    ),
-                  );
-                }
-              },
-              child: Text('Submit'),
-            ),
-          ),
+          allTextFieldWithMargin(),
+          paddingRaisedButton(_formKey, context),
         ],
       ),
     );
   }
+}
+
+Widget allTextFieldWithMargin() {
+  return Container(
+    margin: new EdgeInsets.all(16.0),
+    child: Column(
+      children: <Widget>[
+        new TextFormField(
+          decoration: new InputDecoration(hintText: 'Enter Something'),
+          keyboardType: TextInputType.phone,
+          validator: (value) {
+            if (value.isEmpty) {
+              return 'Please enter some text';
+            }
+            return null;
+          },
+        ),
+      ],
+    ),
+  );
+}
+
+Widget paddingRaisedButton(fk, layout) {
+  return Padding(
+    padding: const EdgeInsets.all(16.0),
+    child: RaisedButton(
+      onPressed: () {
+        if (fk.currentState.validate()) {
+          Scaffold.of(layout).showSnackBar(
+            SnackBar(
+              content: Text('Processing Data'),
+            ),
+          );
+        }
+      },
+      child: Text('Submit'),
+    ),
+  );
 }
