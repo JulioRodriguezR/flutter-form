@@ -28,7 +28,7 @@ class MyCustomFormState extends State<MyCustomForm> {
           CustomRaisedButton(
             txt: Text('submit'),
             snackBar: Text('Processing Data'),
-            formKey: _formKey,
+            validator: _formKey,
             width: 150,
             height: 40,
             color: Colors.grey,
@@ -42,7 +42,7 @@ class MyCustomFormState extends State<MyCustomForm> {
 
 Widget allTextFieldWithMargin() {
   return Container(
-    margin: new EdgeInsets.all(16.0),
+    margin: new EdgeInsets.all(20.0),
     child: Column(
       children: <Widget>[
         new TextFormField(
