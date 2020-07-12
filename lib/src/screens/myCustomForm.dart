@@ -22,7 +22,7 @@ class MyCustomFormState extends State<MyCustomForm> {
     return Form(
       key: _formKey,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           TextFormField(
             validator: (value) {
@@ -31,9 +31,13 @@ class MyCustomFormState extends State<MyCustomForm> {
               }
               return null;
             },
+            decoration: new InputDecoration(
+              hintText: "Enter Something",
+              contentPadding: const EdgeInsets.all(6.0),
+            ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            padding: const EdgeInsets.all(16.0),
             child: RaisedButton(
               onPressed: () {
                 // Validate returns true if the form is valid, or false
