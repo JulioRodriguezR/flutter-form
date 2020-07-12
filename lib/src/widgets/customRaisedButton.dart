@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomRaisedButton extends StatelessWidget {
   final Text txt;
   final Text snackBar;
-  final GlobalKey<FormState> validator;
+  final GlobalKey<FormState> fK;
   final double width;
   final double height;
   final Color color;
@@ -15,7 +15,7 @@ class CustomRaisedButton extends StatelessWidget {
       {Key key,
       @required this.txt,
       @required this.snackBar,
-      @required this.validator,
+      @required this.fK,
       @required this.width,
       @required this.height,
       @required this.color,
@@ -55,17 +55,17 @@ class CustomRaisedButton extends StatelessWidget {
             leadingIcon ?? Container(),
             txt,
             finalIcon ?? Offstage(),
-            RaisedButton(
-              onPressed: () {
-                if (validator.currentState.validate()) {
-                  Scaffold.of(context).showSnackBar(
-                    SnackBar(
-                      content: snackBar,
-                    ),
-                  );
-                }
-              },
-            )
+//            RaisedButton(
+//              onPressed: () {
+//                if (fK.currentState.validate()) {
+//                  Scaffold.of(context).showSnackBar(
+//                    SnackBar(
+//                      content: snackBar,
+//                    ),
+//                  );
+//                }
+//              },
+//            )
           ],
         ),
       ),

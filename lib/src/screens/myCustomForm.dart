@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/src/widgets/allTextFieldWithMargin.dart';
 import 'package:flutter_app/src/widgets/customRaisedButton.dart';
 
 class MyCustomForm extends StatefulWidget {
@@ -10,7 +11,7 @@ class MyCustomForm extends StatefulWidget {
 
 // This class holds data related to the form.
 class MyCustomFormState extends State<MyCustomForm> {
-  // Create a global key that uniquely identifies the Form widget
+  // Global key that uniquely identifies the Form widget
   // and allows validation of the form.
   //
   // Note: This is a GlobalKey<FormState>,
@@ -28,7 +29,7 @@ class MyCustomFormState extends State<MyCustomForm> {
           CustomRaisedButton(
             txt: Text('submit'),
             snackBar: Text('Processing Data'),
-            validator: _formKey,
+            fK: _formKey,
             width: 150,
             height: 40,
             color: Colors.grey,
@@ -38,24 +39,4 @@ class MyCustomFormState extends State<MyCustomForm> {
       ),
     );
   }
-}
-
-Widget allTextFieldWithMargin() {
-  return Container(
-    margin: new EdgeInsets.all(20.0),
-    child: Column(
-      children: <Widget>[
-        new TextFormField(
-          decoration: new InputDecoration(hintText: 'Enter Something'),
-          keyboardType: TextInputType.phone,
-          validator: (value) {
-            if (value.isEmpty) {
-              return 'Please enter some text';
-            }
-            return null;
-          },
-        ),
-      ],
-    ),
-  );
 }
