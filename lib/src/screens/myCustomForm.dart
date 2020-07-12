@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/src/widgets/customRaisedButton.dart';
 
 class MyCustomForm extends StatefulWidget {
   @override
@@ -22,10 +23,17 @@ class MyCustomFormState extends State<MyCustomForm> {
     return Form(
       key: _formKey,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           allTextFieldWithMargin(),
-          paddingRaisedButton(_formKey, context),
+          CustomRaisedButton(
+            txt: Text('submit'),
+            snackBar: Text('Processing Data'),
+            formKey: _formKey,
+            width: 150,
+            height: 40,
+            color: Colors.grey,
+            handle: () => {print('clicked on submit button')},
+          )
         ],
       ),
     );
@@ -48,24 +56,6 @@ Widget allTextFieldWithMargin() {
           },
         ),
       ],
-    ),
-  );
-}
-
-Widget paddingRaisedButton(fk, layout) {
-  return Padding(
-    padding: const EdgeInsets.all(16.0),
-    child: RaisedButton(
-      onPressed: () {
-        if (fk.currentState.validate()) {
-          Scaffold.of(layout).showSnackBar(
-            SnackBar(
-              content: Text('Processing Data'),
-            ),
-          );
-        }
-      },
-      child: Text('Submit'),
     ),
   );
 }
