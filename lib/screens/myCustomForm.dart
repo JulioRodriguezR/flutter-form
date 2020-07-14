@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/src/widgets/allTextFieldWithMargin.dart';
-import 'package:flutter_app/src/widgets/customRaisedButton.dart';
+import 'package:flutter_app/widgets/allTextFieldWithMargin.dart';
+import 'package:flutter_app/widgets/customRaisedButton.dart';
 
 class MyCustomForm extends StatefulWidget {
   @override
