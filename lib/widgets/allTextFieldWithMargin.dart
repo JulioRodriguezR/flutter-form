@@ -6,9 +6,11 @@ Widget allTextFieldWithMargin() {
     child: Column(
       children: <Widget>[
         new TextFormField(
+          initialValue: 'Hello',
           decoration: new InputDecoration(hintText: 'Enter Something'),
           keyboardType: TextInputType.phone,
           validator: (value) {
+            print(value);
             if (value.isEmpty) {
               return 'Please enter some text';
             }
